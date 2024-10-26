@@ -38,7 +38,7 @@ const ProductList = function () {
         "https://plus.unsplash.com/premium_photo-1683326528070-4ebec9188ae1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZGVza3RvcHxlbnwwfHwwfHx8MA%3D%3D",
     },
   ];
-
+  
   let mappedAllProducts = allProducts.map((eachProduct) => (
     <ProductItem key={eachProduct.prodId} data={eachProduct}></ProductItem>
   ));

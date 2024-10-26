@@ -13,21 +13,23 @@ import Counter from "./components/Counter";
 import PersonClick from "./components/PersonClick";
 import MovieName from "./components/MovieName";
 import InputDemo from "./components/InputDemo";
+import EcomList from "./components/ecommerce/EcomList";
 function App() {
   return (
     <>
-      <h2>This is App Component!</h2>
+      {/* <h2>This is App Component!</h2> */}
       {/* <Display></Display> */}
       {/* <Color></Color> */}
       {/* <Person></Person> */}
       {/* <FruitObjectArray></FruitObjectArray> */}
       {/* <ActorList></ActorList> */}
-      {<ProductList></ProductList>}
+      {/* {<ProductList></ProductList>} */}
       {/* <ButtonClick></ButtonClick> */}
       {/* <Counter></Counter> */}
       {/* <PersonClick></PersonClick> */}
       {/* <MovieName></MovieName> */}
       {/* <InputDemo></InputDemo> */}
+      <EcomList></EcomList>
     </>
   );
 }
