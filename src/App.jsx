@@ -14,6 +14,10 @@ import PersonClick from "./components/PersonClick";
 import MovieName from "./components/MovieName";
 import InputDemo from "./components/InputDemo";
 import EcomList from "./components/ecommerce/EcomList";
+import EcomAdd from "./components/ecommerce/EcomAdd";
+import EcomEdit from "./components/ecommerce/EcomEdit";
+import EcomAddValidation from "./components/ecommerce/EcomAddValidation";
+import EcomAddValidationRef from "./components/ecommerce/EcomAddValidationRef";
 function App() {
   return (
     <>
@@ -29,7 +33,12 @@ function App() {
       {/* <PersonClick></PersonClick> */}
       {/* <MovieName></MovieName> */}
       {/* <InputDemo></InputDemo> */}
-      <EcomList></EcomList>
+      {/* <EcomList></EcomList> */}
+      {/* <EcomAdd></EcomAdd> */}
+      {/* <EcomEdit></EcomEdit> */}
+      {/* <InputDemo></InputDemo> */}
+      {/* <EcomAddValidation></EcomAddValidation> */}
+      <EcomAddValidationRef></EcomAddValidationRef>
     </>
   );
 }

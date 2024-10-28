@@ -43,31 +43,33 @@ function EcomList() {
 
   function addToCart(prodId) {
     //console.log(prodId);
-
+    allProducts.find()
     // fetch the product with id prodId
     let fetchedProduct = allProducts.find(
       (eachProduct) => eachProduct.prodId == prodId
     );
     // add the product object to the cart array state variable
-    setCart([...cart, fetchedProduct]); // we cannot do this ---> cart.push(fetchedProduct)
+    let newId = cart.length == 0 ? 1 : cart[cart.length - 1].cartId + 1;
+    setCart([...cart, { ...fetchedProduct, cartId: newId }]); // we cannot do this ---> cart.push(fetchedProduct)
   }
 
-  function deleteCartItem(prodId) {
+  function deleteCartItem(cartId) {
     let filteredCart = cart.filter(
-      (eachCartItem) => eachCartItem.prodId != prodId
+      (eachCartItem) => eachCartItem.cartId != cartId
     );
     setCart(filteredCart);
   }
 
   let mappedCart = cart.map((eachCartItem) => (
-    <tr key={eachCartItem.prodId}>
+    <tr key={eachCartItem.cartId}>
+      <td>{eachCartItem.cartId}</td>
       <td>{eachCartItem.prodId}</td>
       <td>{eachCartItem.prodName}</td>
       <td>Rs.{eachCartItem.prodCost}</td>
       <td>
         <button
           className="btn btn-danger"
-          onClick={() => deleteCartItem(eachCartItem.prodId)}
+          onClick={() => deleteCartItem(eachCartItem.cartId)}
         >
           🗑️
         </button>
@@ -117,6 +119,7 @@ function EcomList() {
                   <thead>
                     <tr>
                       <th>ID</th>
+                      <th>PROD ID</th>
                       <th>NAME</th>
                       <th>COST</th>
                       <th></th>
