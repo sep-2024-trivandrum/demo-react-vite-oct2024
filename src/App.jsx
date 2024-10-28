@@ -18,6 +18,7 @@ import EcomAdd from "./components/ecommerce/EcomAdd";
 import EcomEdit from "./components/ecommerce/EcomEdit";
 import EcomAddValidation from "./components/ecommerce/EcomAddValidation";
 import EcomAddValidationRef from "./components/ecommerce/EcomAddValidationRef";
+import TodoList from "./components/todo-app/TodoList";
 function App() {
   return (
     <>
@@ -38,7 +39,8 @@ function App() {
       {/* <EcomEdit></EcomEdit> */}
       {/* <InputDemo></InputDemo> */}
       {/* <EcomAddValidation></EcomAddValidation> */}
-      <EcomAddValidationRef></EcomAddValidationRef>
+      {/* <EcomAddValidationRef></EcomAddValidationRef> */}
+      <TodoList></TodoList>
     </>
   );
 }

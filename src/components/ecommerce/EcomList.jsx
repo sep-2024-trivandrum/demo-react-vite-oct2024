@@ -43,7 +43,6 @@ function EcomList() {
 
   function addToCart(prodId) {
     //console.log(prodId);
-    allProducts.find()
     // fetch the product with id prodId
     let fetchedProduct = allProducts.find(
       (eachProduct) => eachProduct.prodId == prodId
