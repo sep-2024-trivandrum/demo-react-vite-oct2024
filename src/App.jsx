@@ -19,6 +19,9 @@ import EcomEdit from "./components/ecommerce/EcomEdit";
 import EcomAddValidation from "./components/ecommerce/EcomAddValidation";
 import EcomAddValidationRef from "./components/ecommerce/EcomAddValidationRef";
 import TodoList from "./components/todo-app/TodoList";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Error from "./components/Error";
+import HeaderApp from "./components/HeaderApp";
 function App() {
   return (
     <>
@@ -40,7 +43,19 @@ function App() {
       {/* <InputDemo></InputDemo> */}
       {/* <EcomAddValidation></EcomAddValidation> */}
       {/* <EcomAddValidationRef></EcomAddValidationRef> */}
-      <TodoList></TodoList>
+      {/* <TodoList></TodoList> */}
+
+      <BrowserRouter>
+        <HeaderApp></HeaderApp>
+        <Routes>
+          <Route path="/" element={<Counter />}></Route>
+          <Route path="/todo" element={<TodoList />}></Route>
+          <Route path="/fruit-list" element={<FruitObjectArray />}></Route>
+          <Route path="/ecom-list" element={<EcomList />}></Route>
+          <Route path="/actor-list" element={<ActorList />}></Route>
+          <Route path="/*" element={<Error />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

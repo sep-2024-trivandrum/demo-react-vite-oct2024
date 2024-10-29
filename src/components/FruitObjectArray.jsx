@@ -17,7 +17,7 @@ function FruitObjectArray() {
     },
   ];
   let mappedAllFruits = allFruits.map((eachFruit) => (
-    <li>
+    <li key={eachFruit.fruitId}>
       {eachFruit.fruitEmoji}, {eachFruit.fruitId} : {eachFruit.fruitName}
     </li>
   ));

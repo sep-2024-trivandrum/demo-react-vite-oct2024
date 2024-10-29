@@ -25,17 +25,19 @@ function ActorList() {
 
   return (
     <>
-      <h3>LIST OF ACTORS</h3>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>FIRSTNAME</th>
-            <th>LASTNAME</th>
-          </tr>
-        </thead>
-        <tbody>{mappedAllActors}</tbody>
-      </table>
+      <div className="container m-3">
+        <h3>LIST OF ACTORS</h3>
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>FIRSTNAME</th>
+              <th>LASTNAME</th>
+            </tr>
+          </thead>
+          <tbody>{mappedAllActors}</tbody>
+        </table>
+      </div>
     </>
   );
 }
