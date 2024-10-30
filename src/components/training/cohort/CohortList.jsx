@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function CohortList() {
-  const navigate = useNavigate();
+  const [searchStack, setSearchStack] = useState("");
   const [allCohorts, setAllCohorts] = useState([
     {
       cohortId: 201,
@@ -35,6 +35,8 @@ export default function CohortList() {
       cohortInstructor: "",
     },
   ]);
+  const [filteredAllCohorts, setFilteredAllCohorts] = useState([...allCohorts]);
+
   const [allVenues, setAllVenues] = useState([
     {
       venueId: 101,
@@ -70,12 +72,22 @@ export default function CohortList() {
     setAllCohorts([...filteredCohorts]);
   }
 
+  function handleSearch(event) {
+    setSearchStack(event.target.value);
+    let filterAllCohort = allCohorts.filter((eachCohort) =>
+      eachCohort.cohortStack
+        .toLowerCase()
+        .includes(event.target.value.toLowerCase())
+    );
+    setFilteredAllCohorts([...filterAllCohort]);
+  }
+
   function addDays(date, days) {
     const newDate = new Date(date);
     newDate.setDate(date.getDate() + days);
     return newDate;
   }
-  let mappedAllCohorts = allCohorts.map((eachCohort) => (
+  let mappedAllCohorts = filteredAllCohorts.map((eachCohort) => (
     <tr key={eachCohort.cohortId}>
       <td>{eachCohort.cohortId}</td>
       <td>{eachCohort.cohortStack}</td>
@@ -123,15 +135,21 @@ export default function CohortList() {
       </td>
     </tr>
   ));
+
   return (
     <>
       <div className="container m-1">
         <h3>LIST OF COHORTS</h3>
         <div className="formC-control-group">
-          <label for="sStack" className="form-label">
+          <label htmlFor="sStack" className="form-label">
             Search Stack:
           </label>
-          <input type="text" id="sStack" className="form-control"></input>
+          <input
+            type="text"
+            id="sStack"
+            placeholder="Enter search string"
+            onChange={(e) => handleSearch(e)}
+          ></input>
         </div>
         <table className="table table-striped">
           <thead>
