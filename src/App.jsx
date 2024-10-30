@@ -21,7 +21,12 @@ import EcomAddValidationRef from "./components/ecommerce/EcomAddValidationRef";
 import TodoList from "./components/todo-app/TodoList";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Error from "./components/Error";
+import VenueList from "./components/training/venue/VenueList";
+import HeaderTraining from "./components/training/HeaderTraining";
 import HeaderApp from "./components/HeaderApp";
+import CohortList from "./components/training/cohort/CohortList";
+import CohortAdd from "./components/training/cohort/CohortAdd";
+import VenueAdd from "./components/training/venue/VenueAdd";
 function App() {
   return (
     <>
@@ -53,6 +58,12 @@ function App() {
           <Route path="/fruit-list" element={<FruitObjectArray />}></Route>
           <Route path="/ecom-list" element={<EcomList />}></Route>
           <Route path="/actor-list" element={<ActorList />}></Route>
+          <Route path="/training" element={<HeaderTraining />}>
+            <Route path="venue-list" element={<VenueList />}></Route>
+            <Route path="cohort-list" element={<CohortList />}></Route>
+            <Route path="cohort-add" element={<CohortAdd />}></Route>
+            <Route path="venue-add" element={<VenueAdd />}></Route>
+          </Route>
           <Route path="/*" element={<Error />}></Route>
         </Routes>
       </BrowserRouter>

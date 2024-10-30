@@ -20,7 +20,7 @@ function ActorList() {
   ];
 
   let mappedAllActors = allActors.map((eachActor) => (
-    <ActorItem data={eachActor}></ActorItem>
+    <ActorItem data={eachActor} key={eachActor.actorId}></ActorItem>
   ));
 
   return (
