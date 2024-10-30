@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function CohortList() {
+  const navigate = useNavigate(); // created for programatic navigation
   const [searchStack, setSearchStack] = useState("");
   const [allCohorts, setAllCohorts] = useState([
     {
@@ -58,6 +59,12 @@ export default function CohortList() {
 
   function handleView(cohortId) {
     console.log(cohortId);
+    let getCohort = allCohorts.filter(
+      (eachCohort) => eachCohort.cohortId == cohortId
+    );
+    // navigate to another component with route path /training/cohort-view
+    // here we have to use programatic navigation with the help of useNavigate() hook
+    navigate("/training/cohort-view/" + cohortId, { state: getCohort[0] });
   }
 
   function handleEdit(cohortId) {
@@ -66,10 +73,10 @@ export default function CohortList() {
 
   function handleDelete(cohortId) {
     console.log(cohortId);
-    let filteredCohorts = allCohorts.filter(
+    let filteredCohorts = filteredAllCohorts.filter(
       (eachCohort) => eachCohort.cohortId != cohortId
     );
-    setAllCohorts([...filteredCohorts]);
+    setFilteredAllCohorts([...filteredCohorts]);
   }
 
   function handleSearch(event) {
@@ -114,7 +121,7 @@ export default function CohortList() {
           onClick={() => handleView(eachCohort.cohortId)}
           className="btn btn-warning"
         >
-          VIEW
+          <span className="material-symbols-outlined">view_list</span>
         </button>
       </td>
       <td>
@@ -122,7 +129,7 @@ export default function CohortList() {
           onClick={() => handleEdit(eachCohort.cohortId)}
           className="btn btn-primary"
         >
-          EDIT
+          <span className="material-symbols-outlined">edit</span>
         </button>
       </td>
       <td>
@@ -130,7 +137,7 @@ export default function CohortList() {
           onClick={() => handleDelete(eachCohort.cohortId)}
           className="btn btn-danger"
         >
-          DELETE
+          <span className="material-symbols-outlined">delete</span>
         </button>
       </td>
     </tr>

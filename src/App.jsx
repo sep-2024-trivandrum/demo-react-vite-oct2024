@@ -27,6 +27,7 @@ import HeaderApp from "./components/HeaderApp";
 import CohortList from "./components/training/cohort/CohortList";
 import CohortAdd from "./components/training/cohort/CohortAdd";
 import VenueAdd from "./components/training/venue/VenueAdd";
+import CohortView from "./components/training/cohort/CohortView";
 function App() {
   return (
     <>
@@ -61,6 +62,7 @@ function App() {
           <Route path="/training" element={<HeaderTraining />}>
             <Route path="venue-list" element={<VenueList />}></Route>
             <Route path="cohort-list" element={<CohortList />}></Route>
+            <Route path="cohort-view/:cid" element={<CohortView />}></Route>
             <Route path="cohort-add" element={<CohortAdd />}></Route>
             <Route path="venue-add" element={<VenueAdd />}></Route>
           </Route>
