@@ -36,6 +36,16 @@ export default function HeaderApp() {
                 Training
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/fake-api" className="nav-link">
+                Fake API
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/training-http" className="nav-link">
+                Training Http
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>
