@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function CohortAddHttp() {
+  const baseUrl = "http://localhost:3000/cohorts";
   let navigate = useNavigate();
   const [cohortData, setCohortData] = useState({
-    cohortId: 0,
+    id: 0,
     cohortSize: 0,
     cohortVenueId: 0,
     cohortStack: "",
@@ -33,7 +34,14 @@ export default function CohortAddHttp() {
   function handleFormSubmit(event) {
     event.preventDefault();
     console.log(cohortData);
-    navigate("/training/cohort-list", { state: cohortData });
+
+    fetch(baseUrl, {
+      method: "POST",
+      body: JSON.stringify(cohortData),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => navigate("/training-http/cohort-list-http"));
   }
   return (
     <>
@@ -109,7 +117,7 @@ export default function CohortAddHttp() {
                   placeholder="Enter Cohort Duration"
                   className="form-control"
                   required
-                  name="cohortDuration"
+                  name="cohortDurationWeeks"
                   onChange={(e) => handleFormChange(e)}
                 ></input>
                 <div className="text-danger small">

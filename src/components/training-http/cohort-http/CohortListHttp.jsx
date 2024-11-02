@@ -30,6 +30,7 @@ export default function CohortListHttp() {
 
   function handleEdit(id) {
     console.log(id);
+    navigate("/training-http/cohort-edit-http/" + id);
   }
 
   function handleDelete(id) {

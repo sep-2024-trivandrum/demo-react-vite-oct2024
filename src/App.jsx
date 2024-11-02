@@ -35,6 +35,8 @@ import CohortViewHttp from "./components/training-http/cohort-http/CohortViewHtt
 import JsonPlaceholder from "./components/JsonPlaceholder";
 import CohortListHttp from "./components/training-http/cohort-http/CohortListHttp";
 import CohortAddHttp from "./components/training-http/cohort-http/CohortAddHttp";
+import CohortEditHttp from "./components/training-http/cohort-http/CohortEditHttp";
+
 function App() {
   return (
     <>
@@ -82,6 +84,10 @@ function App() {
               element={<CohortViewHttp />}
             ></Route>
             <Route path="cohort-add-http" element={<CohortAddHttp />}></Route>
+            <Route
+              path="cohort-edit-http/:cid"
+              element={<CohortEditHttp />}
+            ></Route>
             <Route path="venue-add-http" element={<VenueAddHttp />}></Route>
           </Route>
           <Route path="/*" element={<Error />}></Route>
