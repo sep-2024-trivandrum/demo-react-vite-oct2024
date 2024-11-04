@@ -28,6 +28,11 @@ export default function CohortListHttp() {
     navigate("/training-http/cohort-view-http/" + id);
   }
 
+  function handleMap(id) {
+    console.log(id);
+    navigate("/training-http/cohort-map-http/" + id);
+  }
+
   function handleEdit(id) {
     console.log(id);
     navigate("/training-http/cohort-edit-http/" + id);
@@ -63,7 +68,12 @@ export default function CohortListHttp() {
       <td>{eachCohort.cohortSize}</td>
       <td>
         {eachCohort.cohortVenueId == 0 ? (
-          <button className="btn btn-success">Map</button>
+          <button
+            className="btn btn-success"
+            onClick={() => handleMap(eachCohort.id)}
+          >
+            Map
+          </button>
         ) : (
           eachCohort.cohortVenueId
         )}
